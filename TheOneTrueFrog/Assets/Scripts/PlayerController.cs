@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public Text flyAmountText;
+    public bool isGrounded = false;
 
     private int _flyAmount;
    
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
     //Jump Action Code
     void Jump()
     {
-        if (Input.GetButtonDown("Jump")) 
+        if (Input.GetButtonDown("Jump") && isGrounded == true) 
         {
         gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse); 
         }
